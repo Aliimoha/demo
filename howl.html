@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="so">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Education & Voting Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="logo-area">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h2>EduSmart PRO</h2>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="nav-item active" onclick="switchPage('home')"
+            ><i class="fa-solid fa-house"></i> Dashboard Home</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-item" onclick="switchPage('courses')"
+            ><i class="fa-solid fa-book-open"></i> Courses</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-item" onclick="switchPage('students')"
+            ><i class="fa-solid fa-user-graduate"></i> Students & Attendance</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-item" onclick="switchPage('voting')"
+            ><i class="fa-solid fa-square-poll-vertical"></i> Live Election</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-item" onclick="switchPage('portal')"
+            ><i class="fa-solid fa-key"></i> Student Portal</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-item" onclick="switchPage('contact')"
+            ><i class="fa-solid fa-address-book"></i> Contact Support</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+      <!-- SECTION 1: HOME -->
+      <section id="home" class="page-section active">
+        <div class="hero-card">
+          <h1>Ku soo Dhawaaw Nidaamka Maamulka Smart</h1>
+          <p>
+            Kani waa nidaam dhammaystiran oo loogu talagalay in lagu maamulo
+            xogta ardayda, koorsooyinka, nidaamka codaynta tooska ah, iyo
+            xiriirka guud ee machadka. Isticmaal menu-ka bidix si aad u maamusho
+            nidaamka.
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <h3>Ardayda Diiwaangashan</h3>
+            <p id="total-students-count">0</p>
+          </div>
+          <div class="stat-box">
+            <h3>Koorsooyinka Firfircoon</h3>
+            <p>4</p>
+          </div>
+          <div class="stat-box">
+            <h3>Codadka La Dhiibtay</h3>
+            <p id="total-votes-count">0</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: COURSES -->
+      <section id="courses" class="page-section">
+        <div class="section-header">
+          <h2>Koorsooyinka Firfircoon</h2>
+        </div>
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="badge">Dhaqanka</div>
+            <h3>Tarbiyo</h3>
+            <p>Barashada akhlaaqda, dhismaha qofnimada, iyo qiyamka suuban.</p>
+          </div>
+          <div class="course-card">
+            <div class="badge">Luuqad</div>
+            <h3>Carabi</h3>
+            <p>Barashada naxwaha, sarfiga, iyo qorista afka Carabiga.</p>
+          </div>
+          <div class="course-card">
+            <div class="badge">Luuqad</div>
+            <h3>English</h3>
+            <p>Academic writing, vocabulary building, and advanced speaking.</p>
+          </div>
+          <div class="course-card">
+            <div class="badge">Saynis</div>
+            <h3>Biology</h3>
+            <p>
+              Barashada unugyada, hidda-socodka, iyo nidaamyada bini-aadamka.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: STUDENTS & ATTENDANCE -->
+      <section id="students" class="page-section">
+        <div class="section-header">
+          <h2>Maamulka Ardayda & Xaadirinta</h2>
+        </div>
+
+        <div class="admin-panel-grid">
+          <!-- Form to Add Student -->
+          <div class="card-form">
+            <h3>+ Diiwaangeli Arday Cusub</h3>
+            <form id="add-student-form" onsubmit="registerStudent(event)">
+              <div class="input-group">
+                <label>Magaca Buuxa</label>
+                <input
+                  type="text"
+                  id="stu-name"
+                  placeholder="Tusaale: Maxamed Cali"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label>Username</label>
+                <input
+                  type="text"
+                  id="stu-username"
+                  placeholder="Tusaale: maxamed20"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label>Password / Secret Code</label>
+                <input
+                  type="text"
+                  id="stu-code"
+                  placeholder="Tusaale: Pass123"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn-primary">
+                Keydi & Abuur Aqoonsiga
+              </button>
+            </form>
+          </div>
+
+          <!-- Update Stats Form -->
+          <div class="card-form">
+            <h3>Casriyeey Xogta Ardayga (Exam & Attendance)</h3>
+            <form id="update-student-form" onsubmit="updateStudentData(event)">
+              <div class="input-group">
+                <label>Dooro Ardayga</label>
+                <select id="select-student" required>
+                  <option value="">-- Dooro Arday --</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label>Xaadiris (%)</label>
+                <input
+                  type="number"
+                  id="update-attendance"
+                  min="0"
+                  max="100"
+                  placeholder="Tusaale: 95"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label>Natiijada Imtixaanka</label>
+                <input
+                  type="text"
+                  id="update-exam"
+                  placeholder="Tusaale: 85/100 ama A"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn-secondary">
+                Cusbooneysii Xogta
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Master Student Table -->
+        <div class="table-container">
+          <h3>Xogta Guud ee Ardayda</h3>
+          <table class="pro-table">
+            <thead>
+              <tr>
+                <th>Magaca Buuxa</th>
+                <th>Username</th>
+                <th>Secret Code</th>
+                <th>Attendance (%)</th>
+                <th>Exam Status</th>
+              </tr>
+            </thead>
+            <tbody id="student-table-body">
+              <!-- Dynamic content via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 4: LIVE VOTING -->
+      <section id="voting" class="page-section">
+        <div class="section-header">
+          <h2>Tartan & Codbixin Toos Ah</h2>
+          <p>
+            Natiijadu waxay isu beddelaysaa si toos ah (Real-time tracking).
+          </p>
+        </div>
+
+        <div class="voting-grid">
+          <div class="candidate-box">
+            <div class="candidate-info">
+              <h3>Musharax Axmed (Team A)</h3>
+              <span id="votes-a-text">0 Cod (0%)</span>
+            </div>
+            <div class="bar-container">
+              <div id="bar-a" class="bar-fill color-a" style="width: 0%"></div>
+            </div>
+            <button class="btn-vote" onclick="castVote('A')">
+              U Codee Axmed
+            </button>
+          </div>
+
+          <div class="candidate-box">
+            <div class="candidate-info">
+              <h3>Musharax Faadumo (Team B)</h3>
+              <span id="votes-b-text">0 Cod (0%)</span>
+            </div>
+            <div class="bar-container">
+              <div id="bar-b" class="bar-fill color-b" style="width: 0%"></div>
+            </div>
+            <button class="btn-vote" onclick="castVote('B')">
+              U Codee Faadumo
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: STUDENT PORTAL (WHERE STUDENTS CHECK) -->
+      <section id="portal" class="page-section">
+        <div class="section-header">
+          <h2>Galka Ardayga (Student Self-Service)</h2>
+          <p>
+            Ardaygu halkan ayuu soo gelayaa si uu u arko xaadiristiisa iyo
+            imtixaankiisa gaarka ah.
+          </p>
+        </div>
+
+        <div class="portal-container">
+          <div class="login-card" id="portal-login-box">
+            <h3>Soo Gali Aqoonsigaaga</h3>
+            <div class="input-group">
+              <label>Username</label>
+              <input
+                type="text"
+                id="login-username"
+                placeholder="Gali Username-kaaga"
+              />
+            </div>
+            <div class="input-group">
+              <label>Secret Code / Password</label>
+              <input
+                type="password"
+                id="login-code"
+                placeholder="Gali Koodhkaaga"
+              />
+            </div>
+            <button class="btn-primary" onclick="loginStudentPortal()">
+              Eeg Xogtayda
+            </button>
+            <p id="login-error" class="error-msg"></p>
+          </div>
+
+          <!-- Personal Student Dashboard (Hidden by default) -->
+          <div
+            class="student-profile-card"
+            id="portal-profile-box"
+            style="display: none"
+          >
+            <div class="profile-header">
+              <h3 id="profile-student-name">Arday: -</h3>
+              <button class="btn-danger" onclick="logoutStudentPortal()">
+                Ka Bax Galka
+              </button>
+            </div>
+            <div class="profile-stats">
+              <div class="p-stat">
+                <h4>Boqolayda Xaadiriska</h4>
+                <p id="profile-attendance">-</p>
+              </div>
+              <div class="p-stat">
+                <h4>Natiijada Imtixaanada</h4>
+                <p id="profile-exam">-</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: CONTACT -->
+      <section id="contact" class="page-section">
+        <div class="section-header">
+          <h2>La Xiriir Maamulka</h2>
+        </div>
+        <div class="card-form" style="max-width: 600px; margin: 0 auto">
+          <form
+            onsubmit="
+              alert('Fariintaada waa la diray!');
+              event.preventDefault();
+            "
+          >
+            <div class="input-group">
+              <label>Magacaaga</label>
+              <input type="text" placeholder="Gali magacaaga buuxa" required />
+            </div>
+            <div class="input-group">
+              <label>Faalo</label>
+              <textarea
+                rows="5"
+                placeholder="Ku qor cabasho ama codsi halkan..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Dir Farriinta</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- UI Core Logic (JavaScript) -->
+    <script src="bashaal.js"></script>
+  </body>
+</html>

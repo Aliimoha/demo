@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Cali Moha</h1>
+        <p>Welcome to my personal portfolio website. Here you can learn more about me and my work.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About Me</a> |
+        <a href="#gallery">Gallery</a> |
+        <a href="#media">Multimedia</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+
+            <article>
+                <h3>Biography</h3>
+                <p>
+                    My name is Cali Moha. I am interested in technology,
+                    programming, and web development.
+                </p>
+            </article>
+
+            <aside>
+                <h3>Quick Facts</h3>
+                <p>I enjoy learning HTML and creating websites.</p>
+            </aside>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+
+            <figure>
+                <img src="images/pro.webp" alt="My profile picture" width="300">
+                <figcaption>My Profile Picture</figcaption>
+            </figure>
+
+            <picture>
+                <source srcset="images/photo.webp" type="image/webp">
+                <source srcset="images/pgro.webp" type="images/pgro.webp">
+                <img src="images/pgro.webp" alt="Gallery image" width="600">
+            </picture>
+        </section>
+
+        <!-- Multimedia Section -->
+        <section id="media">
+            <h2>My Media</h2>
+
+            <h3>Video</h3>
+            <video width="240" controls>
+                <source src="video/v.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="audio/bilic.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <!-- Iframe Section -->
+        <section>
+            <h2>Favorite Video</h2>
+
+            <iframe
+                width="560"
+                height="315"
+                src="https://youtu.be/rlj7o6xN4_0"
+                title="YouTube Video"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact">
+            <h2>Contact Form</h2>
+
+            <form action="submit.html" method="post">
+
+                <label for="username">Username:</label><br>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter username"
+                    pattern="[A-Za-z]+"
+                    minlength="3"
+                    maxlength="20"
+                    required>
+                <br><br>
+
+                <label for="email">Email:</label><br>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@email.com"
+                    required>
+                <br><br>
+                <label for="password">Password:</label><br>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    minlength="6"
+                    required>
+                <br><br>
+
+                <label for="age">Age:</label><br>
+                <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    min="18"
+                    max="60"
+                    required>
+                <br><br>
+
+                <label for="birthdate">Birth Date:</label><br>
+                <input type="date" id="birthdate" name="birthdate">
+                <br><br>
+
+                <label>Gender:</label><br>
+
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+
+                <br><br>
+
+                <label>Skills:</label><br>
+
+                <input type="checkbox" id="html" name="skills" value="HTML">
+                <label for="html">HTML</label>
+
+                <input type="checkbox" id="css" name="skills" value="CSS">
+                <label for="css">CSS</label>
+
+                <br><br>
+
+                <label for="file">Upload File:</label><br>
+                <input type="file" id="file" name="file">
+                <br><br>
+
+                <label for="color">Favorite Color:</label><br>
+                <input type="color" id="color" name="color">
+                <br><br>
+
+                <label for="range">Experience Level:</label><br>
+                <input type="range" id="range" name="range" min="0" max="100">
+                <br><br>
+
+                <label for="country">Country:</label><br>
+                <select id="country" name="country">
+                    <option value="somalia">Somalia</option>
+                    <option value="kenya">Kenya</option>
+                    <option value="ethiopia">Ethiopia</option>
+                </select>
+
+                <br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    cols="30"
+                    placeholder="Write your message here">
+                </textarea>
+
+                <br><br>
+
+                <input type="submit" value="Submit">
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Cali Moha. All Rights Reserved.</p>
+        <p>Email: calimohamed09.com</p>
+    </footer>
+
+</body>
+</html>
